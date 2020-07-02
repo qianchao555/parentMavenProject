@@ -1,0 +1,6 @@
+# Project exclude paths
+/childMavenProject/target/
+/euraka-server/target/
+/out/
+/product-data-service/target/
+/target/
