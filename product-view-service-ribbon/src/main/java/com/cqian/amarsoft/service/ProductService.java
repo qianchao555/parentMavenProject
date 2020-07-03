@@ -11,8 +11,9 @@ import java.util.List;
 public class ProductService {
     @Autowired
     ProductClientRibbon productClientRibbon;
-    public List<Product> listProducts(){
-        return productClientRibbon.listProdcuts();
+
+    public List<Product> listProducts() {
+        return productClientRibbon.listProducts();
 
     }
 }

@@ -6,18 +6,20 @@
 
   <groupId>com.cqian.amarsoft</groupId>
   <artifactId>parentMavenProject</artifactId>
-  <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
 
   <modules>
     <module>childMavenProject</module>
     <module>euraka-server</module>
     <module>product-data-service</module>
     <module>product-view-service-ribbon</module>
+      <module>product-view-service-feign</module>
   </modules>
 
   <name>parentMavenProject</name>
 
-  <packaging>pom</packaging>
+<!--  <packaging>pom</packaging>-->
 
   <parent>
     <groupId>org.springframework.boot</groupId>

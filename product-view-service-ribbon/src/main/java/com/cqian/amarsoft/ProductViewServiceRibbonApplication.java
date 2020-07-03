@@ -4,8 +4,11 @@ import cn.hutool.core.convert.Convert;
 import cn.hutool.core.thread.ThreadUtil;
 import cn.hutool.core.util.NetUtil;
 import cn.hutool.core.util.NumberUtil;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 
@@ -15,9 +18,10 @@ import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
-/**
- * Hello world!
- */
+@SpringBootApplication
+@EnableEurekaClient
+//用于发现eureka 注册中心的微服务
+@EnableDiscoveryClient
 public class ProductViewServiceRibbonApplication {
     public static void main(String[] args) throws InterruptedException, ExecutionException, TimeoutException {
         int port = 0;
@@ -50,6 +54,9 @@ public class ProductViewServiceRibbonApplication {
 
     @Bean
     @LoadBalanced
+    /**
+     * 用 restTemplate 这个工具来做负载均衡
+     */
     RestTemplate restTemplate() {
         return new RestTemplate();
     }
